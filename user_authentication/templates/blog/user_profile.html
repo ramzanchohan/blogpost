@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Reset some default styles to ensure consistency */
+        body, h1, p, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f2f2f2;
+        }
+
+        /* Center the container */
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        img {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container">
+  {% csrf_token %}
+
+{{request.user.username}}
+ {% if request.user.user_profile.image %}
+<img src="{{request.user.user_profile.image.url}}">
+    {% else %}
+    no Picture
+    {% endif %}
+  <!-- Profile update form -->
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="profile-image">Choose a new profile image:</label>
+      <input type="file" id="profile-image" name="img">
+    </div>
+
+    <button type="submit">Update Profile</button>
+      <div>
+        <p>Change Password <span><a href="{%url 'change_password'%}">update</a></span></p>
+          </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>

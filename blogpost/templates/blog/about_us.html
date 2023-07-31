@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - BlogPost</title>
+  <!-- Link to Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+    body{
+      background-color: #b7b7b7;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark shadow py-3">
+  <div class="container-fluid">
+    {% load static %}
+    <img src="{% static '/images/logo.jpg' %}" alt="loading" width="30" height="24">
+
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'contact_us' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'signup' %}">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Page Content -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2 class="text-center">About Us</h2>
+        <p>
+          Welcome to BlogPost, your go-to source for all things related to technology, science, and innovation. We're
+          dedicated to providing you with the latest news, articles, and insights from the world of technology. Our team
+          of passionate writers and tech enthusiasts work hard to deliver informative and engaging content that keeps you
+          informed and entertained.
+        </p>
+        <p>
+          Founded in 2020, BlogPost has come a long way from its beginnings. When we first started out, our passion for
+          technology and the desire to share knowledge with others drove us to start this platform. We hope you enjoy our
+          articles as much as we enjoy writing them for you. If you have any questions or comments, please don't hesitate
+          to contact us.
+        </p>
+        <p>
+          We love hearing from our readers and value your feedback. Connect with us on social media and be part of our
+          growing community. Stay tuned for exciting updates and new content as we continue to expand and explore the
+          ever-evolving world of technology.
+        </p>
+        <p>
+          Thank you for being a part of BlogPost!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white mt-5 py-3">
+    <div class="container text-center">
+      <p>&copy; 2023 BlogPost. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Link to Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
