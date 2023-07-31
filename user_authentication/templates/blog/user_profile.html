@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
         /* Reset some default styles to ensure consistency */
         body, h1, p, form {
@@ -86,7 +87,52 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-dark shadow py-3">
+  <div class="container-fluid">
+    {% load static %}
+    <img src="{% static '/images/logo.jpg' %}" alt="loading" width="30" height="24">
 
+{#    <div class="collapse navbar-collapse" id="navbarNavDropdown">#}
+    <ul class="navbar-nav collapse navbar-collapse">
+        <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="{% url 'about_us' %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="{% url 'contact_us' %}">Contact</a>
+        </li>
+    </ul>
+
+    <!-- Move "Login" and "Signup" links to the right side -->
+        {% if user.is_authenticated %}
+           <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome {{ request.user }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarNavDropdown">
+              <a class="dropdown-item" href="{% url 'login' %}">Logout</a>
+              <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a>
+              <div class="dropdown-divider"></div>
+           </div>
+           </li>
+           </ul>
+        {% else %}
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'signup' %}">Signup</a>
+        </li>
+    </ul>
+        {% endif %}
+  </div>
+</nav>
 
 
 <div class="container">
@@ -115,6 +161,6 @@
 </div>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

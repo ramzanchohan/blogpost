@@ -24,7 +24,7 @@
     <img src="{% static '/images/logo.jpg' %}" alt="loading" width="30" height="24">
 
 {#    <div class="collapse navbar-collapse" id="navbarNavDropdown">#}
-    <ul class="navbar-nav justify-content-end">
+    <ul class="navbar-nav collapse navbar-collapse">
         <li class="nav-item">
             <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
         </li>
@@ -46,6 +46,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarNavDropdown">
               <a class="dropdown-item" href="{% url 'login' %}">Logout</a>
               <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a>
               <div class="dropdown-divider"></div>
            </div>
            </li>
@@ -61,12 +62,6 @@
         </li>
     </ul>
         {% endif %}
-
-{#</div>#}
-{#      <div class="pg">#}
-{#          <a href="{% url 'profile' %}">Profile</a>#}
-{#      </div>#}
-
   </div>
 </nav>
 
