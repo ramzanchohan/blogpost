@@ -3,8 +3,8 @@ from datetime import date
 
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=200, default="title")
-    author = models.CharField(max_length=50, default="author")
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=50)
     content = models.TextField(default="content")
     pub_date = models.DateField(default=date.today())
     image = models.ImageField(upload_to='images/', blank=True)
@@ -20,7 +20,7 @@ class contact(models.Model):
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=13)
     message = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return 'Message from' ' ' + self.name

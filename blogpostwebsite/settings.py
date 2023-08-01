@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_authentication',
     'blogpost',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'blogpost.middleware.RedirectLoggedInUserMiddleware',
 ]
 
 ROOT_URLCONF = 'blogpostwebsite.urls'
@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Karachi'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
