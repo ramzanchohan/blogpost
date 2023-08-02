@@ -19,13 +19,15 @@ def signup(request):
         confirm_password = request.POST.get('confirmpassword')
 
         if password != confirm_password:
-            return HttpResponse("Your Password & Confirm Password are not same!")
+            messages.error(request, "Your Password & Confirm Password are not same!")
+
         else:
             my_user = User.objects.create_user(user_name, email, password)
             my_user.first_name = first_name
             my_user.last_name = last_name
             my_user.save()
             return redirect('login')
+        messages.success(request, 'Successfully Signup')
 
         # print(user_name, email, first_name, last_name, password, confirmp_assword)
     return render(request, 'blog/signup.html')
@@ -38,10 +40,7 @@ def userlogin(request):
         user = authenticate(username=user_name, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "Successfully logged in")
             return redirect('index')
-        else:
-            messages.error(request, 'UserName or Password is incorrect')
 
     return render(request, "blog/login.html")
 

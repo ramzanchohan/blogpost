@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import BlogPost, contact, Comment, Reply
 from django.contrib.auth.decorators import login_required
@@ -15,9 +15,9 @@ from user_authentication.urls import urlpatterns
 def index(request):
     all_posts = BlogPost.objects.all()
     created_at = timezone.now()  # Set the current timestamp
-
-    paginator = Paginator(all_posts, 12)
+    paginator = Paginator(all_posts, 6)
     page_number = request.GET.get('page', 1)
+    print(page_number)
     page_obj = paginator.get_page(page_number)
     context = {"allposts": page_obj}  # Use 'page_obj' instead of 'all_posts'
     return render(request, 'blog/index.html', context)

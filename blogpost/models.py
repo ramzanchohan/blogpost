@@ -5,7 +5,7 @@ from datetime import date
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=50)
-    content = models.TextField(default="content")
+    content = models.TextField(max_length=1000)
     pub_date = models.DateField(default=date.today())
     image = models.ImageField(upload_to='images/', blank=True)
 
@@ -38,19 +38,3 @@ class Reply(models.Model):
     name = models.CharField(max_length=50)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-
-
-# blog/models.py
-# from django.db import models
-# from django.contrib.auth.models import User
-#
-# class Comment(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     content = models.TextField()
-#     created_at = models.DateTimeField(auto_now_add=True)
-#
-# class Reply(models.Model):
-#     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     content = models.TextField()
-#     created_at = models.DateTimeField(auto_now_add=True)
