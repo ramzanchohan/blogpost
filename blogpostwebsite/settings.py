@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_authentication',
     'blogpost',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'django_unused_media'
 ]
 
 MIDDLEWARE = [
